@@ -8,7 +8,7 @@ from aiogram.enums import ParseMode
 from aiogram.client.default import DefaultBotProperties
 
 router = Router()
-ADMIN_ID = 5331036146  # Твой ID вшит сюда
+ADMIN_ID = 5331036146 
 
 class IsAdmin(BaseFilter):
     async def __call__(self, event) -> bool:
@@ -58,6 +58,7 @@ async def main():
     app.router.add_get('/', handle)
     runner = web.AppRunner(app)
     await runner.setup()
+    
     port = int(os.getenv('PORT', 8080))
     site = web.TCPSite(runner, '0.0.0.0', port)
     await site.start()
